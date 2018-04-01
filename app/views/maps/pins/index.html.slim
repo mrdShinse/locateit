@@ -22,10 +22,10 @@ table
         td = pin.priority
         td = pin.lat
         td = pin.lng
-        td = link_to 'Show', pin
-        td = link_to 'Edit', edit_pin_path(pin)
-        td = link_to 'Destroy', pin, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Show', map_pin_path(id: pin)
+        td = link_to 'Edit', edit_map_pin_path(id: pin)
+        td = link_to 'Destroy', map_pin_path(id: pin), data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Pin', new_pin_path
+= link_to 'New Pin', new_map_pin_path
