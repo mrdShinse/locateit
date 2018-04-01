@@ -38,3 +38,5 @@ br
 => link_to 'Edit', edit_me_map_path(@map)
 '|
 =< link_to 'Back', me_maps_path
+
+= render partial: 'maps/gmap_container', locals: { map: @map }

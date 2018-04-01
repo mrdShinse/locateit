@@ -11,3 +11,5 @@ p
   ul
     - @map.pins.each do |pin|
       li = pin.name
+
+= render partial: 'gmap_container', locals: { map: @map }

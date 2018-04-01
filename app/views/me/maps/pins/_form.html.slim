@@ -22,3 +22,5 @@
     = f.label :lng
     = f.text_field :lng
   .actions = f.submit
+
+= render partial: 'gmap_container', locals: { pin: @pin }

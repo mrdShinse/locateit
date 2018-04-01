@@ -17,7 +17,7 @@ module Me
         @pin = @map.pins.build(pin_params)
 
         if @pin.save
-          redirect_to me_map_path(id: @map), notice: 'Pin was successfully created.'
+          redirect_to edit_me_map_pin_path(id: @pin), notice: 'Pin was successfully created.'
         else
           render :new
         end
@@ -25,7 +25,7 @@ module Me
 
       def update
         if @pin.update(pin_params)
-          redirect_to me_map_path(id: @map), notice: 'Pin was successfully updated.'
+          redirect_to edit_me_map_pin_path(id: @pin), notice: 'Pin was successfully updated.'
         else
           render :edit
         end
