@@ -31,3 +31,10 @@ ul
   - @maps.each do |map|
     li
       = link_to map.name, map_path(id: map)
+
+h3 あなたの地図一覧
+
+ul
+  - @yours.each do |map|
+    li
+      = link_to map.name, map_path(id: map)
