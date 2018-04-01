@@ -4,11 +4,15 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
 
-  resources :users
-
-  resources :maps do
-    scope module: :maps do
-      resources :pins
+  resource :me do
+    scope module: :me do
+      resources :maps do
+        scope module: :maps do
+          resources :pins
+        end
+      end
     end
   end
+
+  resources :maps, only: %i[show]
 end

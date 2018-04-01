@@ -1,0 +1,25 @@
+h1 Listing maps
+
+table
+  thead
+    tr
+      th User
+      th Name
+      th Memo
+      th
+      th
+      th
+
+  tbody
+    - @maps.each do |map|
+      tr
+        td = map.user
+        td = map.name
+        td = map.memo
+        td = link_to 'Show', me_map_path(id: map)
+        td = link_to 'Edit', edit_me_map_path(id: map)
+        td = link_to 'Destroy', me_map_path(id: map), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Map', new_me_map_path(id: current_user)

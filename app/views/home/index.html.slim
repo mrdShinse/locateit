@@ -23,11 +23,11 @@ h1 LOCATEIT
   = link_to 'ログアウト', destroy_user_session_path, method: :delete
 
   h3
-    = link_to '地図を作りますか？', new_map_path
+    = link_to '地図を作りますか？', new_me_map_path
 
 h3 公開中の地図一覧
 
 ul
   - @maps.each do |map|
     li
-      = link_to map.name, map_path(map)
+      = link_to map.name, map_path(id: map)

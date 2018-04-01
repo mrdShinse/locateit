@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong User:
+  = @map.user
+p
+  strong Name:
+  = @map.name
+p
+  strong Memo:
+  = @map.memo
+
+=> link_to 'Edit', edit_me_map_path(@map)
+'|
+=< link_to 'Back', me_maps_path

@@ -1,4 +1,4 @@
-= form_for @map do |f|
+= form_for [:me, @map] do |f|
   - if @map.errors.any?
     #error_explanation
       h2 = "#{pluralize(@map.errors.count, "error")} prohibited this map from being saved:"
@@ -15,4 +15,4 @@
   .actions
     = f.submit
     - if @map.persisted?
-      = link_to 'ピンの追加', new_map_pin_path(@map)
+      = link_to 'ピンの追加', new_me_map_pin_path(map_id: @map)
