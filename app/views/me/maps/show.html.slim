@@ -1,15 +1,40 @@
-p#notice = notice
+h2 = "あなたの地図"
 
-p
-  strong User:
-  = @map.user
-p
-  strong Name:
-  = @map.name
+h3 = @map.name
+
 p
   strong Memo:
   = @map.memo
 
+h3 Listing pins
+
+table
+  thead
+    tr
+      th Name
+      th Memo
+      th Priority
+      th Lat
+      th Lng
+      th
+      th
+      th
+
+  tbody
+    - @map.pins.each do |pin|
+      tr
+        td = pin.name
+        td = pin.memo
+        td = pin.priority
+        td = pin.lat
+        td = pin.lng
+        td = link_to 'Edit', edit_me_map_pin_path(map_id: @map, id: pin)
+        td = link_to 'Destroy', me_map_pin_path(map_id: @map, id: pin), data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+=> link_to 'ピンの追加', new_me_map_pin_path(@map)
+'|
 => link_to 'Edit', edit_me_map_path(@map)
 '|
 =< link_to 'Back', me_maps_path

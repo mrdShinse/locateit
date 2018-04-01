@@ -1,9 +1,13 @@
-p
-  strong User:
-  = @map.user
-p
-  strong Name:
-  = @map.name
+h2 = "#{@map.user.id}さんの地図"
+
+h3 = @map.name
+
 p
   strong Memo:
   = @map.memo
+
+p
+  strong Pins:
+  ul
+    - @map.pins.each do |pin|
+      li = pin.name

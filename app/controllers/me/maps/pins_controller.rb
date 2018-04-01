@@ -5,13 +5,7 @@ module Me
     class PinsController < ApplicationController # :nodoc:
       before_action -> { @user = current_user }
       before_action -> { @map = current_user.maps.find(params[:map_id]) }
-      before_action :set_pin, only: %i[show edit update destroy]
-
-      def index
-        @pins = @map.pins
-      end
-
-      def show; end
+      before_action :set_pin, only: %i[edit update destroy]
 
       def new
         @pin = @map.pins.build
@@ -23,7 +17,7 @@ module Me
         @pin = @map.pins.build(pin_params)
 
         if @pin.save
-          redirect_to me_map_pin_path(id: @pin), notice: 'Pin was successfully created.'
+          redirect_to me_map_path(id: @map), notice: 'Pin was successfully created.'
         else
           render :new
         end
@@ -31,7 +25,7 @@ module Me
 
       def update
         if @pin.update(pin_params)
-          redirect_to me_map_pin_path(id: @pin), notice: 'Pin was successfully updated.'
+          redirect_to me_map_path(id: @map), notice: 'Pin was successfully updated.'
         else
           render :edit
         end
@@ -39,7 +33,7 @@ module Me
 
       def destroy
         @pin.destroy
-        redirect_to me_map_pins_url(@map), notice: 'Pin was successfully destroyed.'
+        redirect_to me_map_path(id: @map), notice: 'Pin was successfully destroyed.'
       end
 
       private

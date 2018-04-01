@@ -1,9 +1,8 @@
-h1 Listing maps
+h1 Your maps
 
 table
   thead
     tr
-      th User
       th Name
       th Memo
       th
@@ -13,7 +12,6 @@ table
   tbody
     - @maps.each do |map|
       tr
-        td = map.user.id
         td = map.name
         td = map.memo
         td = link_to 'Show', me_map_path(id: map)

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     scope module: :me do
       resources :maps do
         scope module: :maps do
-          resources :pins
+          resources :pins, except: %i[index show]
         end
       end
     end
