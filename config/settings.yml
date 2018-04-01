@@ -1,2 +1,2 @@
 googlemap:
-  key: XXXXXXXXXXXXXXXXXXXXXXXXX
+  key: <%= ENV.fetch("GOOGLEMAP_API_KEY") { 'XXXXXXXXXXXXXXX' } %>
