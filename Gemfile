@@ -11,7 +11,7 @@ end
 gem 'rails', '~> 5.1.6'
 
 # db
-gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+gem 'pg'
 
 # web server
 gem 'puma', '~> 3.7'
