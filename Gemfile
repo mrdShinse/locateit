@@ -7,11 +7,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# waf
 gem 'rails', '~> 5.1.6'
-# Use mysql as the database for Active Record
+
+# db
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
-# Use Puma as the app server
+
+# web server
 gem 'puma', '~> 3.7'
 
 # view
@@ -30,9 +32,6 @@ gem 'webpacker'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -48,4 +47,10 @@ group :development do
   # linter
   gem 'dm_linters'
   gem 'rubocop'
+
+  # deploy
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-nginx'
+  gem 'capistrano3-puma'
 end
