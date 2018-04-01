@@ -1,27 +1,4 @@
-h1 LOCATEIT
-
-- unless user_signed_in?
-  h2 位置情報をお金に替えよう
-  h3 使い方
-  ul
-    li 地図を新規作成する
-    li 地図にピンを落とす
-    li 公開する
-
-  h3 どんな情報が公開されてるの？
-  ul
-    li 銀座でオススメの寿司屋５選
-    li あのドラマのロケ地まとめ
-    li 某芸能人の目撃情報！
-
-  h3 あなたも自分の地図を作って公開しよう！
-
-  h3
-    = link_to 'ログイン', new_user_session_path
-
-- else
-  = link_to 'ログアウト', destroy_user_session_path, method: :delete
-
+- if user_signed_in?
   h3
     = link_to '地図を作りますか？', new_me_map_path
 
@@ -30,11 +7,13 @@ h3 公開中の地図一覧
 ul
   - @maps.each do |map|
     li
-      = link_to map.name, map_path(id: map)
+      = link_to "#{map.name} by ID: #{map.user.id}さん", map_path(id: map)
 
-h3 あなたの地図一覧
 
-ul
-  - @yours.each do |map|
-    li
-      = link_to map.name, map_path(id: map)
+- if user_signed_in?
+  h3 = "あなた(ID: #{current_user.id})の地図一覧"
+
+  ul
+    - @yours.each do |map|
+      li
+        = link_to map.name, me_map_path(id: map)

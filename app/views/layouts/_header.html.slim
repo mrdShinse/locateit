@@ -1,0 +1,23 @@
+h1 = link_to 'LOCATEIT', root_path
+
+- unless user_signed_in?
+  h2 位置情報をお金に替えよう
+  h3 使い方
+  ul
+    li 地図を新規作成する
+    li 地図にピンを落とす
+    li 公開する
+
+  h3 どんな情報が公開されてるの？
+  ul
+    li 銀座でオススメの寿司屋５選
+    li あのドラマのロケ地まとめ
+    li 某芸能人の目撃情報！
+
+  h3 あなたも自分の地図を作って公開しよう！
+
+  h3
+    = link_to 'ログイン', new_user_session_path
+
+- else
+  = link_to 'ログアウト', destroy_user_session_path, method: :delete
