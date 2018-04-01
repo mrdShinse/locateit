@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Map:
+  = @pin.map
+p
+  strong Name:
+  = @pin.name
+p
+  strong Memo:
+  = @pin.memo
+p
+  strong Priority:
+  = @pin.priority
+p
+  strong Lat:
+  = @pin.lat
+p
+  strong Lng:
+  = @pin.lng
+
+=> link_to 'Edit', edit_pin_path(@pin)
+'|
+=< link_to 'Back', pins_path

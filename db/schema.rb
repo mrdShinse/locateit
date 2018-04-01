@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180401064803) do
+ActiveRecord::Schema.define(version: 20180401064954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 20180401064803) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_maps_on_user_id"
+  end
+
+  create_table "pins", force: :cascade do |t|
+    t.bigint "map_id"
+    t.string "name", default: "", null: false
+    t.string "memo", default: "", null: false
+    t.integer "priority", default: 0, null: false
+    t.float "lat", default: 0.0, null: false
+    t.float "lng", default: 0.0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lat", "lng"], name: "index_pins_on_lat_and_lng"
+    t.index ["map_id"], name: "index_pins_on_map_id"
   end
 
   create_table "users", force: :cascade do |t|

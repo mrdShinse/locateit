@@ -1,0 +1,31 @@
+h1 Listing pins
+
+table
+  thead
+    tr
+      th Map
+      th Name
+      th Memo
+      th Priority
+      th Lat
+      th Lng
+      th
+      th
+      th
+
+  tbody
+    - @pins.each do |pin|
+      tr
+        td = pin.map
+        td = pin.name
+        td = pin.memo
+        td = pin.priority
+        td = pin.lat
+        td = pin.lng
+        td = link_to 'Show', pin
+        td = link_to 'Edit', edit_pin_path(pin)
+        td = link_to 'Destroy', pin, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Pin', new_pin_path
