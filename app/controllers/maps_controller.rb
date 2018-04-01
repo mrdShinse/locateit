@@ -1,5 +1,7 @@
-class MapsController < ApplicationController
-  before_action :set_map, only: [:show, :edit, :update, :destroy]
+# frozen_string_literal: true
+
+class MapsController < ApplicationController # :nodoc:
+  before_action :set_map, only: %i[show edit update destroy]
 
   # GET /maps
   def index
@@ -7,8 +9,7 @@ class MapsController < ApplicationController
   end
 
   # GET /maps/1
-  def show
-  end
+  def show; end
 
   # GET /maps/new
   def new
@@ -16,12 +17,11 @@ class MapsController < ApplicationController
   end
 
   # GET /maps/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /maps
   def create
-    @map = Map.new(map_params)
+    @map = current_user.maps.build(map_params)
 
     if @map.save
       redirect_to @map, notice: 'Map was successfully created.'
@@ -46,13 +46,14 @@ class MapsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_map
-      @map = Map.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def map_params
-      params.require(:map).permit(:user_id, :name, :memo)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_map
+    @map = Map.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def map_params
+    params.require(:map).permit(:user_id, :name, :memo)
+  end
 end
