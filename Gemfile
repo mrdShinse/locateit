@@ -29,6 +29,9 @@ gem 'uglifier', '>= 1.3.0'
 # frontend
 gem 'webpacker'
 
+# auth
+gem 'devise'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
