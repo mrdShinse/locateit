@@ -14,4 +14,5 @@
     = f.text_field :memo
   .actions
     = f.submit
-    = link_to 'ピンの追加', new_pin_path
+    - if @map.persisted?
+      = link_to 'ピンの追加', new_map_pin_path(@map)
