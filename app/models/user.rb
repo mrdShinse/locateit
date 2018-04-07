@@ -6,5 +6,13 @@ class User < ApplicationRecord # :nodoc:
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :maps
+  has_many :maps, dependent: :nullify
+
+  def honorific_name
+    if name.present?
+      "#{name}さん"
+    else
+      '名無しさん'
+    end
+  end
 end

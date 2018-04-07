@@ -7,11 +7,11 @@ h3 公開中の地図一覧
 ul
   - @maps.each do |map|
     li
-      = link_to "#{map.name} by ID: #{map.user.id}さん", map_path(id: map)
+      = link_to "#{map.name} by #{map.user.honorific_name}", map_path(id: map)
 
 
 - if user_signed_in?
-  h3 = "あなた(ID: #{current_user.id})の地図一覧"
+  h3 = "あなた(#{current_user.honorific_name})の地図一覧"
 
   ul
     - @yours.each do |map|
