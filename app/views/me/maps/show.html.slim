@@ -3,17 +3,19 @@ h2 = "あなたの地図"
 h3 = @map.name
 
 p
-  strong Memo:
+  strong
+    = t('activerecord.attributes.map.memo')
+    | :
   = @map.memo
 
-h3 Listing pins
+h3 = t('activerecord.attributes.map.pins')
 
 table
   thead
     tr
-      th Name
-      th Memo
-      th Priority
+      th = t('activerecord.attributes.pin.name')
+      th = t('activerecord.attributes.pin.memo')
+      th = t('activerecord.attributes.pin.priority')
       th
       th
       th
@@ -24,15 +26,15 @@ table
         td = pin.name
         td = pin.memo
         td = pin.priority
-        td = link_to 'Edit', edit_me_map_pin_path(map_id: @map, id: pin)
-        td = link_to 'Destroy', me_map_pin_path(map_id: @map, id: pin), data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to t('views.action.edit'), edit_me_map_pin_path(map_id: @map, id: pin)
+        td = link_to t('views.action.destroy'), me_map_pin_path(map_id: @map, id: pin), data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
 => link_to 'ピンの追加', new_me_map_pin_path(@map)
 '|
-=> link_to 'Edit', edit_me_map_path(@map)
+=> link_to t('views.action.edit'), edit_me_map_path(@map)
 '|
-=< link_to 'Back', me_maps_path
+=< link_to t('views.action.back'), me_maps_path
 
 = render partial: 'maps/gmap_container', locals: { map: @map }

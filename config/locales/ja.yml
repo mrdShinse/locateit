@@ -1,0 +1,21 @@
+ja:
+  views:
+    action:
+      edit: 編集する
+      back: 戻る
+      show: 詳細を見る
+      destroy: 削除する
+      create: 作成する
+
+  activerecord:
+    attributes:
+      map:
+        name: 名前
+        memo: メモ
+        pins: ピンの一覧
+      pin:
+        name: 名前
+        memo: メモ
+        priority: 表示順
+        lat: 緯度
+        lng: 軽度

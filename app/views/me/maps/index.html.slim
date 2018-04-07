@@ -3,8 +3,8 @@ h1 Your maps
 table
   thead
     tr
-      th Name
-      th Memo
+      th = t('activerecord.attributes.map.name')
+      th = t('activerecord.attributes.map.memo')
       th
       th
       th
@@ -14,10 +14,10 @@ table
       tr
         td = map.name
         td = map.memo
-        td = link_to 'Show', me_map_path(id: map)
-        td = link_to 'Edit', edit_me_map_path(id: map)
-        td = link_to 'Destroy', me_map_path(id: map), data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to t('views.action.show'), me_map_path(id: map)
+        td = link_to t('views.action.edit'), edit_me_map_path(id: map)
+        td = link_to t('views.action.destroy'), me_map_path(id: map), data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'New Map', new_me_map_path(id: current_user)
+= link_to t('views.action.create'), new_me_map_path(id: current_user)
