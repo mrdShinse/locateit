@@ -13,7 +13,7 @@ function makeGmapLatlng(lat, lng) {
 function renderWholeMap() {
   const prop = {
     center: makeGmapLatlng(35.729503, 139.710900),
-    zoom: 2,
+    zoom: 12,
   };
   const map = makeGmap('gmap-container', prop);
   makeGmapMarker(map, { position: prop.center });
