@@ -37,3 +37,24 @@ function renderPin() {
     makeGmapMarker(map, { position:  prop.center});
   }
 }
+
+function fetchGeo() {
+  const input = document.getElementById('address-search-field').value;
+  const geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode( { 'address': input }, function (results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      const location = results[0].geometry.location
+
+      document.getElementById('pin_lat').value = location.lat();
+      document.getElementById('pin_lng').value = location.lng();
+
+      const prop = {
+        center: makeGmapLatlng(location.lat(), location.lng()),
+        zoom: 18,
+      };
+      const map = makeGmap('gmap-container', prop);
+      makeGmapMarker(map, { position: prop.center })
+    }
+  });
+}

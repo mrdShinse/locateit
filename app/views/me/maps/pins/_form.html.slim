@@ -21,6 +21,12 @@
   .field
     = f.label :lng
     = f.text_field :lng
+
+  .field
+    = label_tag :address_search
+    = text_field_tag :address_search, '', id: 'address-search-field'
+    = button_tag 'fetch address', type: :button, onclick: 'fetchGeo()', class: 'btn btn-default'
+
   .actions = f.submit
 
 = render partial: 'gmap_container', locals: { pin: @pin }
