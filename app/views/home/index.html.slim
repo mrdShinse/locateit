@@ -1,19 +1,36 @@
-- if user_signed_in?
+- unless user_signed_in?
   h3
-    = link_to '地図を作りますか？', new_me_map_path
+    | 位置情報を
+    br
+    | お金に替えよう
+  h4 使い方
+  ul
+    li 地図を新規作成する
+    li 地図にピンを落とす
+    li 公開する
 
-h3 公開中の地図一覧
+  h4 どんな情報が公開されてるの？
+  ul
+    li 銀座でオススメの寿司屋５選
+    li あのドラマのロケ地まとめ
+    li 某芸能人の目撃情報！
 
-ul
-  - @maps.each do |map|
-    li
-      = link_to "#{map.name} by #{map.user.honorific_name}", map_path(id: map)
+  h4 あなたも自分の地図を作って公開しよう！
 
+  = link_to 'ログイン', new_user_session_path, class: 'btn-large waves-effect waves-light'
 
 - if user_signed_in?
-  h3 = "あなた(#{current_user.honorific_name})の地図一覧"
+  h2
+    = link_to '地図を作りますか？', new_me_map_path, class: 'btn-large waves-effect waves-light'
 
-  ul
-    - @yours.each do |map|
-      li
-        = link_to map.name, me_map_path(id: map)
+h4 公開中の地図一覧
+
+- @maps.each do |map|
+  = map.as_html_card
+
+- if user_signed_in?
+  h4
+    = "あなた(#{current_user.honorific_name})の地図一覧"
+
+  - @yours.each do |map|
+    = map.as_html_card
