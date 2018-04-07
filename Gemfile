@@ -21,6 +21,7 @@ gem 'puma', '~> 3.7'
 
 # view
 gem 'active_decorator'
+gem 'materialize-sass', '~> 1.0.0.beta'
 gem 'slim-rails'
 # css
 gem 'sass-rails', '~> 5.0'

@@ -1,5 +1,13 @@
-.logo-container
-  = link_to image_tag('logo'), root_path
+nav
+  .nav-wrapper
+    = link_to image_tag('logo'), root_path
+    - if user_signed_in?
+      ul#nav-mobile.right
+        li
+          = link_to 'ユーザー情報', me_path
+        li
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete
+
 
 - unless user_signed_in?
   h2 位置情報をお金に替えよう
@@ -19,11 +27,3 @@
 
   h3
     = link_to 'ログイン', new_user_session_path
-
-- else
-  nav
-    ul
-      li
-        = link_to 'ユーザー情報', me_path
-      li
-        = link_to 'ログアウト', destroy_user_session_path, method: :delete
