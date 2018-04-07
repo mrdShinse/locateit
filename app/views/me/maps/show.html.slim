@@ -14,8 +14,6 @@ table
       th Name
       th Memo
       th Priority
-      th Lat
-      th Lng
       th
       th
       th
@@ -26,8 +24,6 @@ table
         td = pin.name
         td = pin.memo
         td = pin.priority
-        td = pin.lat
-        td = pin.lng
         td = link_to 'Edit', edit_me_map_pin_path(map_id: @map, id: pin)
         td = link_to 'Destroy', me_map_pin_path(map_id: @map, id: pin), data: { confirm: 'Are you sure?' }, method: :delete
 
