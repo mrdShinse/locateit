@@ -10,7 +10,8 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, id: 'address-search-field'
+    = button_tag 'fetch address', type: :button, onclick: 'fetchGeo()', class: 'btn btn-default'
   .field
     = f.label :memo
     = f.text_field :memo
@@ -24,11 +25,8 @@
     = f.label :lng
     = f.text_field :lng
 
-  .field
-    = label_tag :address_search
-    = text_field_tag :address_search, '', id: 'address-search-field'
-    = button_tag 'fetch address', type: :button, onclick: 'fetchGeo()', class: 'btn btn-default'
-
-  .actions = f.submit
+  .actions
+    = f.submit
+    = link_to 'ピンの追加', new_me_map_pin_path
 
 = render partial: 'gmap_container', locals: { pin: @pin }
