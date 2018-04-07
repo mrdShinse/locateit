@@ -13,3 +13,8 @@
 //= require rails-ujs
 //= require materialize
 //= require_tree .
+
+window.onload = function() {
+  let elem = document.querySelector('.sidenav');
+  let instance = M.Sidenav.init(elem, {})
+}
