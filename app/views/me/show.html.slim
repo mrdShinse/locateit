@@ -1,6 +1,13 @@
-p#notice = notice
+p
+  strong
+    = t('activerecord.attributes.user.id')
+    | :
+  = current_user.id
 
+p
+  strong
+    = t('activerecord.attributes.user.name')
+    | :
+  = current_user.name
 
-=> link_to 'Edit', edit_user_path(@user)
-'|
-=< link_to 'Back', users_path
+= link_to t('views.action.edit'), edit_me_path

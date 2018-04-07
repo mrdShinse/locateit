@@ -20,4 +20,9 @@ h1 = link_to 'LOCATEIT', root_path
     = link_to 'ログイン', new_user_session_path
 
 - else
-  = link_to 'ログアウト', destroy_user_session_path, method: :delete
+  nav
+    ul
+      li
+        = link_to 'ユーザー情報', me_path
+      li
+        = link_to 'ログアウト', destroy_user_session_path, method: :delete

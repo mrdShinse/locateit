@@ -19,3 +19,6 @@ ja:
         priority: 表示順
         lat: 緯度
         lng: 軽度
+      user:
+        id: ID
+        name: 名前
