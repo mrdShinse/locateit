@@ -7,6 +7,7 @@ class User < ApplicationRecord # :nodoc:
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :maps, dependent: :nullify
+  validates :maps, length: { maximum: 5, too_long: '地図は%{count}個までしか作れません。' }
 
   def honorific_name
     if name.present?

@@ -5,6 +5,8 @@
       ul
         - @map.errors.full_messages.each do |message|
           li = message
+        - @map.user.errors.full_messages.each do |message|
+          li = message
 
   .field
     = f.label :name
