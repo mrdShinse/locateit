@@ -3,16 +3,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
+  resources :maps, only: %i[show]
 
-  resource :me do
-    scope module: :me do
-      resources :maps do
-        scope module: :maps do
-          resources :pins, except: %i[index show]
-        end
-      end
+  resource :me, only: %i[show edit update] do
+    resources :maps, module: :me do
+      resources :pins, except: %i[index show], module: :maps
     end
   end
-
-  resources :maps, only: %i[show]
 end
