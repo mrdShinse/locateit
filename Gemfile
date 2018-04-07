@@ -11,6 +11,7 @@ ruby '2.5.1'
 
 # waf
 gem 'rails', '~> 5.1.6'
+gem 'rails-i18n'
 
 # db
 gem 'pg'
@@ -31,6 +32,7 @@ gem 'webpacker'
 
 # auth
 gem 'devise'
+gem 'devise-i18n'
 
 # configuration
 gem 'config'
