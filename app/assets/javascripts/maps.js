@@ -10,11 +10,15 @@ function makeGmapLatlng(lat, lng) {
   return new google.maps.LatLng(lat, lng);
 }
 
-function renderWholeMap() {
+function defaultRenderWholeMap() {
   const prop = {
     center: makeGmapLatlng(35.681167, 139.767052),
     zoom: 12,
   };
+  renderWholeMap(prop);
+}
+
+function renderWholeMap(prop) {
   const map = makeGmap('gmap-container', prop);
 
   const pins = document.getElementById('pins-data-list').children

@@ -14,7 +14,7 @@ p
     | :
   ul
     - @map.pins.each do |pin|
-      li
+      li.clickable-pin data-lat="#{pin.lat}" data-lng="#{pin.lng}"
         i.material-icons place
         = pin.name
 

@@ -17,4 +17,12 @@
 window.onload = function() {
   let elem = document.querySelector('.sidenav');
   let instance = M.Sidenav.init(elem, {})
+
+  const clickablePins = document.getElementsByClassName('clickable-pin')
+  for (i = 0; i < clickablePins.length; i++) {
+    const pin = clickablePins[i];
+    pin.addEventListener('click', function() {
+      renderWholeMap({ center: makeGmapLatlng(pin.dataset.lat, pin.dataset.lng), zoom: 12 })
+    });
+  }
 }
