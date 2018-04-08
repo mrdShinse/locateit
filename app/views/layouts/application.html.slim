@@ -4,13 +4,13 @@ html
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     meta name="viewport" content="width=device-width,initial-scale=1"
     == render 'layouts/favicons'
-    = render 'layouts/tags/gtm_head' if Rails.production?
+    = render 'layouts/tags/gtm_head' if Rails.env.production?
     title Locateit
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = render 'layouts/tags/gtm_body' if Rails.production?
+    = render 'layouts/tags/gtm_body' if Rails.env.production?
     = render partial: 'layouts/header'
 
     .container
