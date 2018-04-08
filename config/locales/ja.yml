@@ -6,6 +6,8 @@ ja:
       show: 詳細を見る
       destroy: 削除する
       create: 作成する
+      submit: 登録する
+      search: 検索する
 
   activerecord:
     attributes:

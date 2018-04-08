@@ -19,18 +19,16 @@
 
   = link_to 'ログイン', new_user_session_path, class: 'btn-large waves-effect waves-light'
 
-- if user_signed_in?
-  h2
-    = link_to '地図を作りますか？', new_me_map_path, class: 'btn-large waves-effect waves-light'
-
 h4 公開中の地図一覧
 
 - @maps.each do |map|
   = map.as_html_card
 
 - if user_signed_in?
-  h4
-    = "あなた(#{current_user.honorific_name})の地図一覧"
+  h4 = "あなたの地図一覧"
 
   - @yours.each do |map|
     = map.as_html_card
+
+
+  h2 = link_to '地図を作りますか？', new_me_map_path, class: 'btn-large waves-effect waves-light'

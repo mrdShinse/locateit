@@ -7,7 +7,7 @@ class User < ApplicationRecord # :nodoc:
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :maps, dependent: :nullify
-  validates :maps, length: { maximum: 5, too_long: '地図は%{count}個までしか作れません。' }
+  validate :map_count
 
   def honorific_name
     if name.present?
@@ -15,5 +15,15 @@ class User < ApplicationRecord # :nodoc:
     else
       '名無しさん'
     end
+  end
+
+  private
+
+  def map_count
+    errors.add(:maps, "地図は#{maximum_map_count}個までしか作れません。") if maps.count >= maximum_map_count
+  end
+
+  def maximum_map_count
+    5
   end
 end

@@ -1,8 +1,9 @@
 = form_for [:me, @pin.map, @pin] do |f|
   - if @pin.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@pin.errors.count, "error")} prohibited this pin from being saved:"
       ul
+        - @pin.map.user.errors.full_messages.each do |message|
+          li = message
         - @pin.map.errors.full_messages.each do |message|
           li = message
         - @pin.errors.full_messages.each do |message|
@@ -11,7 +12,7 @@
   .field
     = f.label :name
     = f.text_field :name, id: 'address-search-field'
-    = button_tag 'fetch address', type: :button, onclick: 'fetchGeo()', class: 'btn btn-default'
+    = button_tag t('views.action.search'), type: :button, onclick: 'fetchGeo()', class: 'btn btn-default'
   .field
     = f.label :memo
     = f.text_field :memo
@@ -26,7 +27,9 @@
     = f.text_field :lng
 
   .actions
-    = f.submit
-    = link_to 'ピンの追加', new_me_map_pin_path
+    = f.submit t('views.action.submit'), class: 'btn waves-effect waves-light'
+    =< link_to 'ピンの追加', new_me_map_pin_path
+    '|
+    =< link_to t('views.action.back'), me_map_path(id: @pin.map)
 
 = render partial: 'gmap_container', locals: { pin: @pin }
