@@ -28,7 +28,7 @@ module Me
     end
 
     def update
-      if @user.maps.update(map_params)
+      if @map.update(map_params)
         redirect_to me_map_path, notice: 'Map was successfully updated.'
       else
         render :edit

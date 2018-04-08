@@ -28,7 +28,6 @@ h4 公開中の地図一覧
   h4 = "あなたの地図一覧"
 
   - @yours.each do |map|
-    = map.as_html_card
-
+    = map.as_html_card(mine: true)
 
   h2 = link_to '地図を作りますか？', new_me_map_path, class: 'btn-large waves-effect waves-light'

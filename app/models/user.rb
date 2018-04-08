@@ -20,7 +20,7 @@ class User < ApplicationRecord # :nodoc:
   private
 
   def map_count
-    errors.add(:maps, "地図は#{maximum_map_count}個までしか作れません。") if maps.count >= maximum_map_count
+    errors.add(:maps, "地図は#{maximum_map_count}個までしか作れません。") if maps.count > maximum_map_count
   end
 
   def maximum_map_count
