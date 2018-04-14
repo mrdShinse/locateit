@@ -257,7 +257,7 @@ Devise.setup do |config|
   # https://github.com/mkdynamic/omniauth-facebook
   # https://developers.facebook.com/docs/concepts/login/
   # https://developers.facebook.com/docs/facebook-login/permissions
-  config.omniauth :facebook, Settings.omniauth.facebook.key, Settings.omniauth.facebook.secret, scope: 'email,public_profile,user_birthday'
+  config.omniauth :facebook, Settings.omniauth.facebook.key, Settings.omniauth.facebook.secret, scope: 'email,public_profile'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
