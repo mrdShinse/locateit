@@ -1,2 +1,7 @@
 googlemap:
   key: <%= ENV.fetch("GOOGLEMAP_API_KEY") { 'XXXXXXXXXXXXXXX' } %>
+
+omniauth:
+  facebook:
+    key:    <%= ENV.fetch("OMNIAUTH_FACEBOOK_KEY") { 'XXXXXXXXXXXXXXX' } %>
+    secret: <%= ENV.fetch("OMNIAUTH_FACEBOOK_SECRET") { 'XXXXXXXXXXXXXXX' } %>

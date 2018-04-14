@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180407112314) do
+ActiveRecord::Schema.define(version: 20180414113238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,22 @@ ActiveRecord::Schema.define(version: 20180407112314) do
     t.datetime "updated_at", null: false
     t.index ["lat", "lng"], name: "index_pins_on_lat_and_lng"
     t.index ["map_id"], name: "index_pins_on_map_id"
+  end
+
+  create_table "social_profiles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.string "name"
+    t.string "nickname"
+    t.string "email"
+    t.string "image_url"
+    t.string "description"
+    t.text "raw_json"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_social_profiles_on_provider_and_uid", unique: true
+    t.index ["user_id"], name: "index_social_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

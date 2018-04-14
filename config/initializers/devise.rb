@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'b638ef982c243391dedc9b1a70d53a471d27209a8455cb715c16f0dd40f23c8cb131836983faa7dead55487192ec8969b7a739edc3e82083af23fd26341fef8b'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -254,9 +254,10 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
-  # Add a new OmniAuth provider. Check the wiki for more information on setting
-  # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  # https://github.com/mkdynamic/omniauth-facebook
+  # https://developers.facebook.com/docs/concepts/login/
+  # https://developers.facebook.com/docs/facebook-login/permissions
+  config.omniauth :facebook, Settings.omniauth.facebook.key, Settings.omniauth.facebook.secret, scope: 'email,public_profile,user_birthday'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

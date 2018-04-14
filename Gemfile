@@ -34,6 +34,8 @@ gem 'webpacker'
 # auth
 gem 'devise'
 gem 'devise-i18n'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # configuration
 gem 'config'
@@ -44,12 +46,15 @@ gem 'config'
 # gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
+  # environment variables
+  gem 'dotenv-rails'
   # testing
   gem 'rspec-rails', '~> 3.7'
   # factory
   gem 'factory_bot_rails'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # debugger
+  gem 'pry'
+  gem 'pry-byebug'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'

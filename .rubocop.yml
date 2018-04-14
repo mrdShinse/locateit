@@ -7,3 +7,9 @@ AllCops:
 
 Metrics/LineLength:
   Max: 140
+
+Style/Documentation:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false

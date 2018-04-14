@@ -4,10 +4,19 @@ class User < ApplicationRecord # :nodoc:
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: %i[facebook]
 
   has_many :maps, dependent: :nullify
+  has_many :social_profiles, dependent: :nullify
   validate :map_count
+
+  scope :from_omniauth, ->(auth) {
+    find_or_create_by(email: auth.info.email) do |user|
+      user.password = Devise.friendly_token[0, 20]
+      user.name = auth.info.name
+    end
+  }
 
   def honorific_name
     if name.present?
