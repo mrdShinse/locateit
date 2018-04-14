@@ -5,4 +5,8 @@ class HomeController < ApplicationController # :nodoc:
     @maps = Map.order(id: :desc).limit(20)
     @yours = current_user.maps.order(id: :desc).limit(20) if user_signed_in?
   end
+
+  def privacy; end
+
+  def terms; end
 end
