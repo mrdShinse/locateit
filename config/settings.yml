@@ -5,3 +5,7 @@ omniauth:
   facebook:
     key:    <%= ENV.fetch("OMNIAUTH_FACEBOOK_KEY") { 'XXXXXXXXXXXXXXX' } %>
     secret: <%= ENV.fetch("OMNIAUTH_FACEBOOK_SECRET") { 'XXXXXXXXXXXXXXX' } %>
+
+slack:
+  webhook:
+    exception: <%= ENV.fetch("SLACK_WEBHOOK_EXCEPTION") { 'XXXXXXXXXXXXXXX' } %>

@@ -40,6 +40,10 @@ gem 'omniauth-facebook'
 # configuration
 gem 'config'
 
+# notification
+gem 'exception_notification'
+gem 'slack-notifier'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
