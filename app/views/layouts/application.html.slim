@@ -2,7 +2,17 @@ doctype html
 html
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type"
-    meta name="viewport" content="width=device-width,initial-scale=1"
+    meta name="viewport"    content="width=device-width,initial-scale=1"
+    meta name="keywords"    content="LOCATE IT,LOCATEIT,ロケートイット,ロケット,プロット,ピン,地図"
+    meta name="description" content="LOCATE IT(ロケートイット)は位置情報のキュレーションメディアです。"
+    meta property="og:title"       content="LOCATE IT(ロケートイット)"
+    meta property="og:type"        content="website"
+    meta property="og:url"         content="https://locate-it.herokuapp.com/"
+    meta property="og:image"       content="https://locate-it.herokuapp.com/favicons/ogp.png"
+    meta property="og:site_name"   content="LOCATE IT"
+    meta property="og:description" content="LOCATE IT(ロケートイット)は位置情報のキュレーションメディアです。"
+    meta property="og:locale"      content="ja_JP"
+
     == render 'layouts/favicons'
     = render 'layouts/tags/gtm_head' if Rails.env.production?
     title Locateit
